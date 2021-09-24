@@ -31,7 +31,7 @@ client.on('ready', () => {
 });
 
 const onMessage = (msg) => {
-    if (msg.author.id !== '803271623137558558' && msg.channel.name === 'edt') {
+    if (msg.author.id !== process.env.BOT_ID && msg.channel.name === 'edt') {
         const content = msg.content;
         const splited = content.split(' ');
         if (typeof commands[splited[0]] === 'function') {

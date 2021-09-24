@@ -69,6 +69,9 @@ exports.next = function () {
         const start = nearest.start;
         const end = nearest.end;
 
+        console.log(start);
+        console.log(end);
+
         const profRegex = /[A-Z]+\s{3}[A-Z]+/gm;
         const matches = nearest.description.match(profRegex);
         const prof = matches[0].split('   ').join(' ');

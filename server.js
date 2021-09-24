@@ -16,7 +16,7 @@ app.listen(3000, () => {
 
 //const chan = require('./channels.js');
 
-client.login('ODAzMjcxNjIzMTM3NTU4NTU4.YA7W_w.a85RzsN - kk7MtJW0R4LxaDw98rw');
+client.login(process.env.BOT_TOKEN);
 // client.on('ready', () => {
 //     console.log("BOT READY");
 //     const channels = client.channels.cache.array();

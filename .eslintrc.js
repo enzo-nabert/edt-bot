@@ -26,6 +26,13 @@ module.exports = {
         'prettier/prettier': ['error', {}, { usePrettierrc: true }],
         'simple-import-sort/imports': 'error',
         'simple-import-sort/exports': 'error',
-        'no-unused-vars': 'off'
+        'no-unused-vars': 'off',
+        'prefer-const': [
+            'error',
+            {
+                destructuring: 'any',
+                ignoreReadBeforeAssign: false
+            }
+        ]
     }
 };

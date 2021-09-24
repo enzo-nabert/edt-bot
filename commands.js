@@ -39,6 +39,9 @@ exports.next = function () {
 
         keys.forEach((key) => {
             events.push(directEvents[key]);
+            if (directEvents[key].start.getDate() === 27) {
+                console.log(directEvents[key].start);
+            }
             // if (!alreadySeen.includes(directEvents[key].summary)) {
             //     alreadySeen.push(directEvents[key].summary);
             // }

@@ -39,9 +39,6 @@ exports.next = function () {
 
         keys.forEach((key) => {
             events.push(directEvents[key]);
-            if (directEvents[key].start.getDate() === 27) {
-                console.log(directEvents[key].start);
-            }
             // if (!alreadySeen.includes(directEvents[key].summary)) {
             //     alreadySeen.push(directEvents[key].summary);
             // }
@@ -71,9 +68,6 @@ exports.next = function () {
 
         const start = nearest.start;
         const end = nearest.end;
-
-        console.log(start);
-        console.log(end);
 
         const profRegex = /[A-Z]+\s{3}[A-Z]+/gm;
         const matches = nearest.description.match(profRegex);

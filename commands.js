@@ -91,7 +91,7 @@ exports.next = function () {
                 },
                 {
                     name: 'Fin',
-                    value: `${end.getHours()} : ${end.getMinutes()}`
+                    value: `${end.getHours() + 2} : ${end.getMinutes()}`
                 },
                 {
                     name: 'Professeur',

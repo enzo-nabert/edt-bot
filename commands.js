@@ -93,7 +93,7 @@ exports.next = function () {
                 },
                 {
                     name: 'Début',
-                    value: `${start.getHours()} : ${start.getMinutes()}`
+                    value: `${start.getHours() + 2} : ${start.getMinutes()}`
                 },
                 {
                     name: 'Fin',

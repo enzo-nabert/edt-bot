@@ -28,6 +28,11 @@ const colors = {
     'Archi. Logicielle': '0xff96fa'
 };
 
+const format = (text) => {
+    text = String(text);
+    return text.length === 1 ? `0${text}` : text;
+};
+
 exports.next = function (group) {
     group = group.toUpperCase();
     let link;
@@ -97,11 +102,11 @@ exports.next = function (group) {
                 },
                 {
                     name: 'Début',
-                    value: `${start.getHours() + 2} : ${start.getMinutes()}`
+                    value: `${start.getHours() + 2} : ${format(start.getMinutes())}`
                 },
                 {
                     name: 'Fin',
-                    value: `${end.getHours() + 2} : ${end.getMinutes()}`
+                    value: `${end.getHours() + 2} : ${format(end.getMinutes())}`
                 },
                 {
                     name: 'Professeur',
@@ -184,11 +189,11 @@ exports.date = (group, params) => {
                         },
                         {
                             name: 'Début',
-                            value: `${start.getHours() + 2} : ${start.getMinutes()}`
+                            value: `${start.getHours() + 2} : ${format(start.getMinutes())}`
                         },
                         {
                             name: 'Fin',
-                            value: `${end.getHours() + 2} : ${end.getMinutes()}`
+                            value: `${end.getHours() + 2} : ${format(end.getMinutes())}`
                         },
                         {
                             name: 'Professeur',

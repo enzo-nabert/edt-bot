@@ -153,6 +153,11 @@ exports.date = (group, params) => {
         });
 
         if (events.length !== 0) {
+            events.sort((a, b) => {
+                const startA = a.start.getTime();
+                const startB = b.start.getTime();
+                return startA < startB ? -1 : startA > startB ? 1 : 0;
+            });
             events.forEach((event) => {
                 let salles = event.location.split(',');
                 const nbSalles = salles.length;

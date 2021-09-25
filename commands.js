@@ -28,8 +28,18 @@ const colors = {
     'Archi. Logicielle': '0xff96fa'
 };
 
-exports.next = function () {
-    axios.post(process.env.ICAL_TOKEN).then((res) => {
+exports.next = function (group) {
+    group = group.toUpperCase();
+    let link;
+    switch (group) {
+        case 'A':
+            link = process.env.ICAL_TOKEN_A;
+            break;
+        case 'B':
+            link = process.env.ICAL_TOKEN_B;
+            break;
+    }
+    axios.post(link).then((res) => {
         const directEvents = ical.sync.parseICS(res.data);
 
         const keys = Object.keys(directEvents);
@@ -108,8 +118,18 @@ exports.next = function () {
     });
 };
 
-exports.date = (params) => {
-    axios.post(process.env.ICAL_TOKEN).then((res) => {
+exports.date = (group, params) => {
+    let link;
+    group = group.toUpperCase();
+    switch (group) {
+        case 'A':
+            link = process.env.ICAL_TOKEN_A;
+            break;
+        case 'B':
+            link = process.env.ICAL_TOKEN_B;
+            break;
+    }
+    axios.post(link).then((res) => {
         const directEvents = ical.sync.parseICS(res.data);
 
         const keys = Object.keys(directEvents);
@@ -159,11 +179,11 @@ exports.date = (params) => {
                         },
                         {
                             name: 'Début',
-                            value: `${start.getHours()} : ${start.getMinutes()}`
+                            value: `${start.getHours() + 2} : ${start.getMinutes()}`
                         },
                         {
                             name: 'Fin',
-                            value: `${end.getHours()} : ${end.getMinutes()}`
+                            value: `${end.getHours() + 2} : ${end.getMinutes()}`
                         },
                         {
                             name: 'Professeur',

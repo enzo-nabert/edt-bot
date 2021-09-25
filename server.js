@@ -35,10 +35,13 @@ const onMessage = (msg) => {
         const content = msg.content;
         const splited = content.split(' ');
         if (typeof commands[splited[0]] === 'function') {
-            if (splited.length === 1) {
-                commands[splited[0]]();
-            } else {
-                commands[splited[0]](splited[1]);
+            switch (splited.length) {
+                case 2:
+                    commands[splited[0]](splited[1]);
+                    break;
+                case 3:
+                    commands[splited[0]](splited[1], splited[2]);
+                    break;
             }
         }
     }

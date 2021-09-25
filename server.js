@@ -37,10 +37,10 @@ const onMessage = (msg) => {
         if (typeof commands[splited[0]] === 'function') {
             switch (splited.length) {
                 case 2:
-                    commands[splited[0]](splited[1]);
+                    commands[splited[0]](splited[1], msg.author);
                     break;
                 case 3:
-                    commands[splited[0]](splited[1], splited[2]);
+                    commands[splited[0]](splited[1], splited[2], msg.author);
                     break;
             }
         }

@@ -33,7 +33,7 @@ const format = (text) => {
     return text.length === 1 ? `0${text}` : text;
 };
 
-exports.next = function (group) {
+exports.next = function (group, author) {
     group = group.toUpperCase();
     let link;
     switch (group) {
@@ -119,7 +119,7 @@ exports.next = function (group) {
             ]
         };
 
-        chan.edt.send({ embed });
+        author.send({ embed });
     });
 };
 

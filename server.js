@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const chan = require('./channels.js');
-const wakeDyno = require('heroku-keep-awake');
+const { wakeDyno } = require('heroku-keep-awake');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

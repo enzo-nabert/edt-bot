@@ -102,11 +102,11 @@ exports.next = function (group, author) {
                 },
                 {
                     name: 'Début',
-                    value: `${start.getHours() + 2} : ${format(start.getMinutes())}`
+                    value: `${start.getHours()} : ${format(start.getMinutes())}`
                 },
                 {
                     name: 'Fin',
-                    value: `${end.getHours() + 2} : ${format(end.getMinutes())}`
+                    value: `${end.getHours()} : ${format(end.getMinutes())}`
                 },
                 {
                     name: 'Professeur',
@@ -119,7 +119,7 @@ exports.next = function (group, author) {
             ]
         };
 
-        author.send({ embed });
+        chan.edt.send({ embed });
     });
 };
 
@@ -189,11 +189,11 @@ exports.date = (group, params) => {
                         },
                         {
                             name: 'Début',
-                            value: `${start.getHours() + 2} : ${format(start.getMinutes())}`
+                            value: `${start.getHours()} : ${format(start.getMinutes())}`
                         },
                         {
                             name: 'Fin',
-                            value: `${end.getHours() + 2} : ${format(end.getMinutes())}`
+                            value: `${end.getHours()} : ${format(end.getMinutes())}`
                         },
                         {
                             name: 'Professeur',
@@ -216,5 +216,13 @@ exports.date = (group, params) => {
             };
             chan.edt.send({ embed });
         }
+    });
+};
+
+exports.cls = (msg, limit) => {
+    msg.channel.messages.fetch({ limit }).then((messages) => {
+        messages.forEach((m) => {
+            m.delete();
+        });
     });
 };

@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const chan = require('./channels.js');
-const { wakeDyno } = require('heroku-keep-awake');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -14,11 +13,6 @@ require('dotenv').config();
 
 app.listen(process.env.PORT || 3000, () => {
     console.log('running on Port 3000');
-    wakeDyno('https://bot-edt.herokuapp.com/', {
-        interval: 29,
-        logging: false,
-        stopTimes: { start: '06:00', end: '18:30' }
-    });
 });
 
 client.login(process.env.BOT_TOKEN);
